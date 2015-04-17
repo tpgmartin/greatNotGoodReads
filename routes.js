@@ -7,11 +7,22 @@ var bookRouter = express.Router();
 var redirects = require('./handlers/redirects');
 
 // Namespace users
-userRouter.get('/', users.index);
-userRouter.get('/user', users.profile);
+userRouter.route('')
+  .get(users.index)
+  .post(users.create);
+userRouter.route('/:id')
+  .get(users.profile)
+  .put(users.edit)
+  .delete(users.delete);
 
 // Namespace books
-// bookRouter.get('/', books.index);
+bookRouter.route('')
+  .get(books.index)
+  .post(books.create);
+bookRouter.route('/:id')
+  .get(books.profile)
+  .put(books.edit)
+  .delete(books.delete);
 
 module.exports = function(app) {
 

@@ -1,11 +1,9 @@
-// Possible actions
-// Create user profile
-// View user profile
-// Edit user profile
-// Delete user profile
-
 exports.index = function(req, res){
-  res.send('List of users');
+  res.render('page', {
+    title:'users',
+    heading: 'Users',
+    content: 'List of users'
+  });
 };
 
 exports.profile = function(req, res){
@@ -13,5 +11,13 @@ exports.profile = function(req, res){
 };
 
 exports.create = function(req, res){
-  res.send('User profile');
+  res.send('Create user');
+}
+
+exports.edit = function(req, res){
+  res.send('Edit profile');
+}
+
+exports.delete = function(req, res){
+  res.send('Delete profile');
 }
